@@ -203,55 +203,9 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "type": "object",
-                        "properties": {
-                          "courseCode": {
-                            "type": "string"
-                          },
-                          "courseName": {
-                            "type": "string"
-                          },
-                          "sectionCode": {
-                            "type": "string"
-                          },
-                          "credits": {
-                            "type": "integer"
-                          },
-                          "graduateLevel": {
-                            "type": "string"
-                          },
-                          "prerequisites": {
-                            "type": "string"
-                          },
-                          "corequisites": {
-                            "type": "string"
-                          },
-                          "capacity": {
-                            "type": "integer"
-                          },
-                          "availableSlots": {
-                            "type": "integer"
-                          },
-                          "reserved": {
-                            "type": "boolean"
-                          },
-                          "meetings": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          },
-                          "professors": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          },
-                          "misc": {
-                            "type": "string"
-                          }
-                        }
+                        "$ref": "#/components/schemas/CourseSection"
                       },
+
                       "example": [
                         {
                           "courseCode": "INSO4101",
@@ -343,19 +297,23 @@
         "type": "object",
         "properties": {
           "courseCode": {
-            "type": "string"
+            "type": "string",
+            "description": "Code of the course (ex: INSO4101)"
           },
           "courseName": {
-            "type": "string"
+            "type": "string",
+            "description": "Full name of the course (ex: Intro to Software Engineering)"
           },
           "sectionCode": {
-            "type": "string"
+            "type": "string",
+            "description": "code of the section (ex: 100D)"
           },
           "credits": {
             "type": "integer"
           },
           "graduateLevel": {
-            "type": "string"
+            "type": "string",
+            "description": "Expected level for a student to enroll in this course (ie. Lower Division -> Undergraduate, Upper Division -> student must have graduated from an undergrad program, etc.)"
           },
           "prerequisites": {
             "type": "string"
