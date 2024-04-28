@@ -49,7 +49,107 @@
                       "items": {
                         "$ref": "#/components/schemas/Department"
                       }
-                    }
+                    },
+                    "example": [
+                      { "code": "ADMI", "name": "BUSINESS ADMINISTRATION" },
+                      { "code": "ADOF", "name": "OFFICE ADMINISTRATION" },
+                      { "code": "AGRO", "name": "AGRONOMY" },
+                      { "code": "ALEM", "name": "GERMAN" },
+                      { "code": "ANTR", "name": "ANTHROPOLOGY" },
+                      { "code": "ARTE", "name": "ART" },
+                      { "code": "ASTR", "name": "ASTRONOMY" },
+                      { "code": "BIND", "name": "INDUSTRIAL BIOTECHNOLOGY" },
+                      { "code": "BIOL", "name": "BIOLOGY" },
+                      { "code": "BOTA", "name": "BOTANY" },
+                      { "code": "CFIT", "name": "PLANT SCIENCE" },
+                      { "code": "CHIN", "name": "CHINESE" },
+                      { "code": "CIAN", "name": "ANIMAL SCIENCE" },
+                      { "code": "CIBI", "name": "BIOLOGICAL SCIENCES" },
+                      { "code": "CIFI", "name": "PHYSICAL SCIENCES" },
+                      {
+                        "code": "CIIC",
+                        "name": "COMPUTER AND INFORMATION SCIENCES AND ENGINEERING"
+                      },
+                      { "code": "CIMA", "name": "MARINE SCIENCES" },
+                      { "code": "CIMI", "name": "MILITARY SCIENCES" },
+                      { "code": "CINE", "name": "CINEMA" },
+                      { "code": "CIPO", "name": "POLITICAL SCIENCES" },
+                      { "code": "CISO", "name": "SOCIAL SCIENCES" },
+                      {
+                        "code": "CMOB",
+                        "name": "MARINE SCIENCES BIOLOGICAL OCEANOGRAPHY"
+                      },
+                      {
+                        "code": "CMOF",
+                        "name": "MARINE SCIENCES PHYSICAL OCEANOGRAPHY"
+                      },
+                      { "code": "COMP", "name": "COMPUTER SCIENCE" },
+                      { "code": "CONT", "name": "ACCOUNTING" },
+                      { "code": "ECAG", "name": "AGRICULTURAL ECONOMICS" },
+                      { "code": "ECON", "name": "ECONOMY" },
+                      { "code": "EDAG", "name": "AGRICULTURAL EDUCATION" },
+                      { "code": "EDES", "name": "SPECIAL EDUCATION" },
+                      { "code": "EDFI", "name": "PHYSICAL EDUCATION" },
+                      { "code": "EDFU", "name": "EDUCATION FOUNDATIONS" },
+                      { "code": "EDMA", "name": "MATHEMATICS EDUCATION" },
+                      {
+                        "code": "EDPE",
+                        "name": "EDUCATIONAL PROGRAMS AND TEACHING"
+                      },
+                      { "code": "ENFE", "name": "NURSING" },
+                      { "code": "ESAE", "name": "AEROSPACE STUDIES" },
+                      { "code": "ESMA", "name": "MATHEMATICAL STATISTICS" },
+                      { "code": "ESPA", "name": "SPANISH" },
+                      { "code": "ESTA", "name": "STATISTICS" },
+                      { "code": "EXAG", "name": "AGRICULTURAL EXTENSION" },
+                      { "code": "FILO", "name": "PHILOSOPHY" },
+                      { "code": "FINA", "name": "FINANCE" },
+                      { "code": "FISI", "name": "PHYSICS" },
+                      { "code": "FRAN", "name": "FRENCH" },
+                      { "code": "GEOL", "name": "GEOLOGY" },
+                      { "code": "GERE", "name": "MANAGEMENT" },
+                      {
+                        "code": "GERH",
+                        "name": "HUMAN RESOURCES MANAGEMENT"
+                      },
+                      { "code": "HIST", "name": "HISTORY" },
+                      { "code": "HORT", "name": "HORTICULTURE" },
+                      { "code": "HUMA", "name": "HUMANITIES" },
+                      { "code": "ICOM", "name": "COMPUTER ENGINEERING" },
+                      { "code": "INAG", "name": "AGRICULTURAL ENGINEERING" },
+                      { "code": "INCI", "name": "CIVIL ENGINEERING" },
+                      { "code": "INEL", "name": "ELECTRICAL ENGINEERING" },
+                      { "code": "INGE", "name": "GENERAL ENGINEERING" },
+                      { "code": "INGL", "name": "ENGLISH" },
+                      { "code": "ININ", "name": "INDUSTRIAL ENGINEERING" },
+                      { "code": "INME", "name": "MECHANICAL ENGINEERING" },
+                      { "code": "INQU", "name": "CHEMICAL ENGINEERING" },
+                      { "code": "INSO", "name": "SOFTWARE ENGINEERING" },
+                      { "code": "INTD", "name": "INTERDISCIPLINARY" },
+                      { "code": "ITAL", "name": "ITALIAN" },
+                      { "code": "LATI", "name": "LATIN" },
+                      { "code": "LING", "name": "LINGUISTICS" },
+                      { "code": "LITE", "name": "LITERATURE" },
+                      { "code": "MATE", "name": "MATHEMATICS" },
+                      { "code": "MERC", "name": "MARKETING" },
+                      { "code": "METE", "name": "METEOROLOGY" },
+                      { "code": "MUSI", "name": "MUSIC" },
+                      { "code": "PROC", "name": "CROP PROTECTION" },
+                      { "code": "PSIC", "name": "PSYCHOLOGY" },
+                      { "code": "QUIM", "name": "CHEMISTRY" },
+                      {
+                        "code": "SAGA",
+                        "name": "AGRICULTURAL AND ENVIRONMENTAL SYSTEMS"
+                      },
+                      {
+                        "code": "SICI",
+                        "name": "COMPUTERIZED INFORMATION SYSTEMS"
+                      },
+                      { "code": "SOCI", "name": "SOCIOLOGY" },
+                      { "code": "TEAT", "name": "THEATER" },
+                      { "code": "TEED", "name": "TECHNOLOGICAL EDUCATION" },
+                      { "code": "UNIV", "name": "UNIVERSITY COURSES" }
+                    ]
                   }
                 }
               }
@@ -60,14 +160,14 @@
     },
     "/departments/{department}": {
       "get": {
-        "summary": "Get courses in a department",
+        "summary": "Get courses in a department ",
         "operationId": "getCoursesByDepartment",
         "parameters": [
           {
             "name": "department",
             "in": "path",
             "required": true,
-            "description": "Department prefix",
+            "description": "Department code",
             "schema": {
               "type": "string"
             }
@@ -93,7 +193,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Detailed information about courses in the department",
+            "description": "Detailed information about courses in a department",
             "content": {
               "application/json": {
                 "schema": {
@@ -102,8 +202,117 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/CourseSection"
-                      }
+                        "type": "object",
+                        "properties": {
+                          "courseCode": {
+                            "type": "string"
+                          },
+                          "courseName": {
+                            "type": "string"
+                          },
+                          "sectionCode": {
+                            "type": "string"
+                          },
+                          "credits": {
+                            "type": "integer"
+                          },
+                          "graduateLevel": {
+                            "type": "string"
+                          },
+                          "prerequisites": {
+                            "type": "string"
+                          },
+                          "corequisites": {
+                            "type": "string"
+                          },
+                          "capacity": {
+                            "type": "integer"
+                          },
+                          "availableSlots": {
+                            "type": "integer"
+                          },
+                          "reserved": {
+                            "type": "boolean"
+                          },
+                          "meetings": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "professors": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "misc": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "example": [
+                        {
+                          "courseCode": "INSO4101",
+                          "courseName": "INTRODUCTION TO SOFTWARE ENGINEERING",
+                          "sectionCode": "080",
+                          "credits": 3,
+                          "graduateLevel": "LowerDivision",
+                          "prerequisites": "ICOM4035 or CIIC4020",
+                          "corequisites": "",
+                          "capacity": 30,
+                          "availableSlots": 25,
+                          "reserved": false,
+                          "meetings": ["2:30 pm - 3:20 pm LWV S 113"],
+                          "professors": ["Marko Schutz"],
+                          "misc": ""
+                        },
+                        {
+                          "courseCode": "INSO4116",
+                          "courseName": "SOFTWARE DESIGN",
+                          "sectionCode": "070",
+                          "credits": 3,
+                          "graduateLevel": "LowerDivision",
+                          "prerequisites": "INSO4101 or ICOM4009",
+                          "corequisites": "",
+                          "capacity": 30,
+                          "availableSlots": 20,
+                          "reserved": false,
+                          "meetings": ["1:30 pm - 2:20 pm LWV S 113"],
+                          "professors": ["Marko Schutz"],
+                          "misc": ""
+                        },
+                        {
+                          "courseCode": "INSO4151",
+                          "courseName": "SOFTWARE ENGINEERING PROJECT I",
+                          "sectionCode": "001",
+                          "credits": 3,
+                          "graduateLevel": "LowerDivision",
+                          "prerequisites": "(INSO4115 AND INSO4116 AND INSO4117 AND CIIC4025 AND CIIC4060) or DIR",
+                          "corequisites": "",
+                          "capacity": 20,
+                          "availableSlots": 20,
+                          "reserved": true,
+                          "meetings": [],
+                          "professors": ["Wilson Rivera Gallego"],
+                          "misc": ""
+                        },
+                        {
+                          "courseCode": "INSO4995",
+                          "courseName": "ENGINEERING PRACTICE FOR COOP STUDENTS",
+                          "sectionCode": "001P",
+                          "credits": 3,
+                          "graduateLevel": "LowerDivision",
+                          "prerequisites": "DIR",
+                          "corequisites": "",
+                          "capacity": 15,
+                          "availableSlots": 15,
+                          "reserved": true,
+                          "meetings": [],
+                          "professors": ["Marko Schutz"],
+                          "misc": ""
+                        }
+                      ]
                     }
                   }
                 }
@@ -119,9 +328,9 @@
       "Department": {
         "type": "object",
         "properties": {
-          "prefix": {
+          "code": {
             "type": "string",
-            "description": "Department code or prefix"
+            "description": "Department code (ex: INSO)"
           },
           "name": {
             "type": "string",
