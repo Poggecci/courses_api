@@ -1,0 +1,184 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "University Courses API",
+    "description": "This API provides access to information about courses and sections offered by departments at the university.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.university.com/v1",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/departments": {
+      "get": {
+        "summary": "List all departments",
+        "operationId": "listDepartments",
+        "parameters": [
+          {
+            "name": "term",
+            "in": "query",
+            "required": true,
+            "description": "Academic term",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "required": true,
+            "description": "Academic year",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of departments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Department"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/departments/{department}": {
+      "get": {
+        "summary": "Get courses in a department",
+        "operationId": "getCoursesByDepartment",
+        "parameters": [
+          {
+            "name": "department",
+            "in": "path",
+            "required": true,
+            "description": "Department prefix",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "required": true,
+            "description": "Academic term",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "required": true,
+            "description": "Academic year",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detailed information about courses in the department",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CourseSection"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Department": {
+        "type": "object",
+        "properties": {
+          "prefix": {
+            "type": "string",
+            "description": "Department code or prefix"
+          },
+          "name": {
+            "type": "string",
+            "description": "Full name of the department"
+          }
+        }
+      },
+      "CourseSection": {
+        "type": "object",
+        "properties": {
+          "courseCode": {
+            "type": "string"
+          },
+          "courseName": {
+            "type": "string"
+          },
+          "sectionCode": {
+            "type": "string"
+          },
+          "credits": {
+            "type": "integer"
+          },
+          "graduateLevel": {
+            "type": "string"
+          },
+          "prerequisites": {
+            "type": "string"
+          },
+          "corequisites": {
+            "type": "string"
+          },
+          "capacity": {
+            "type": "integer"
+          },
+          "availableSlots": {
+            "type": "integer"
+          },
+          "reserved": {
+            "type": "boolean"
+          },
+          "meetings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "professors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "misc": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
